@@ -1,0 +1,412 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background-color: #e8e4e1;
+}
+/*khôi phục lại cở chữ mặc định*/
+body {
+    font-size: 1.6rem;
+}
+
+.v01 {
+    background-color: #688345;
+    height: 2vw;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+
+
+.v02 {
+    background-color: #FFFFFF;
+    height: 5.5vw;
+    width: 100vw;
+}
+
+.hya-books {
+    color: #688345;
+    font-family: 'Inknut Antiqua', serif;
+    font-weight: 800; /*extrabold*/
+
+    position: absolute;
+    width: 130vw;
+    height: 5vw;
+    left: 10vw;
+    top: 2vw;
+    
+    font-style: normal;
+    font-weight: 800;
+    font-size: 2vw;
+    /* or 100% */
+    display: flex;
+    align-items: center;
+}
+
+.hya-books a {
+    color: inherit; /* Giữ nguyên màu của chữ theo class cha */
+    text-decoration: none; /* Xóa gạch chân mặc định của liên kết */
+}
+
+.logohya { 
+    position: absolute; /* Đặt vị trí nếu cần */
+    left: 2vw; /* Điều chỉnh khoảng cách từ bên trái */
+    top: 0.3vw; /* Đặt vị trí dọc nếu cần */
+    align-items: center;
+}
+
+.logohya img {
+    width: 6vw;   /* Đặt chiều rộng cho hình ảnh */
+    height: 8vw;  /* Đặt chiều cao cho hình ảnh */
+    object-fit: cover; /* Đảm bảo hình ảnh lấp đầy không gian mà không bị méo */
+}
+
+.menu {
+    position: absolute; /* Đặt vị trí nếu cần */
+    left: 30vw; /* Điều chỉnh khoảng cách từ bên trái */
+    top: 4vw; /* Đặt vị trí dọc nếu cần */
+}
+
+.menu img {
+    width: 2vw;   /* Đặt chiều rộng cho hình ảnh */
+    height: 2vw;  /* Đặt chiều cao cho hình ảnh */
+    object-fit: cover; /* Đảm bảo hình ảnh lấp đầy không gian mà không bị méo */
+}
+
+.more1 {
+    position: absolute; /* Đặt vị trí nếu cần */
+    left: 33vw; /* Điều chỉnh khoảng cách từ bên trái */
+    top: 4.5vw; /* Đặt vị trí dọc nếu cần */
+}
+
+.more1 img {
+    width: 1vw;   /* Đặt chiều rộng cho hình ảnh */
+    height: 1vw;  /* Đặt chiều cao cho hình ảnh */
+    object-fit: contain; /* Đảm bảo toàn bộ hình ảnh hiển thị mà không bị cắt */
+}
+
+.search {
+    position: absolute; /* Đặt vị trí nếu cần */
+    left: 40vw; /* Điều chỉnh khoảng cách từ bên trái */
+    top: 3vw; /* Đặt vị trí dọc nếu cần */
+}
+
+.search img {
+    width: 30vw;   /* Đặt chiều rộng cho hình ảnh */
+    height: 4vw;  /* Đặt chiều cao cho hình ảnh */
+    object-fit: contain; /* Đảm bảo toàn bộ hình ảnh hiển thị mà không bị cắt */
+}
+
+.search-input {
+    position: absolute;
+    top: 0vw;
+    left: 0.8vw;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+    width: 100%; /* Để khớp với kích thước khung hình ảnh */
+    height: 100%; /* Để khớp với chiều cao */
+    color: black; /* Màu chữ nếu cần */
+    font-size: 1vw;
+}
+
+.notif {
+    position: absolute; /* Đặt vị trí nếu cần */
+    left: 80vw; /* Điều chỉnh khoảng cách từ bên trái */
+    top: 3.8vw; /* Đặt vị trí dọc nếu cần */
+}
+
+.notif img {
+    width: 2vw;   /* Đặt chiều rộng cho hình ảnh */
+    height: 2vw;  /* Đặt chiều cao cho hình ảnh */
+    object-fit: contain;
+}
+
+.giohang {
+    position: absolute; /* Đặt vị trí nếu cần */
+    left: 85vw; /* Điều chỉnh khoảng cách từ bên trái */
+    top: 3.8vw; /* Đặt vị trí dọc nếu cần */
+}
+
+.giohang img {
+    width: 2.2vw;   /* Đặt chiều rộng cho hình ảnh */
+    height: 2.2vw;  /* Đặt chiều cao cho hình ảnh */
+    object-fit: contain;
+}
+
+.acc {
+    position: absolute; /* Đặt vị trí nếu cần */
+    left: 90vw; /* Điều chỉnh khoảng cách từ bên trái */
+    top: 3.8vw; /* Đặt vị trí dọc nếu cần */
+}
+
+.acc img {
+    width: 2vw;   /* Đặt chiều rộng cho hình ảnh */
+    height: 2vw;  /* Đặt chiều cao cho hình ảnh */
+    object-fit: contain;
+}
+
+.osach {
+    border: 0.1vw solid #688345;
+    border-radius: 1.5vw;
+    width: 97vw;
+    height: 23vw;
+    margin-right: 1vw;
+    margin-left: 1vw;
+    margin-top: 30vw; /* Thêm khoảng cách từ trên xuống */
+    background-color: #f9f9f9;
+}
+
+.ngang {
+    border: none; /* Bỏ bỏ viền mặc định */
+    height: 0.2vw; /* Độ dày của dòng kẻ */
+    background-color: #688345; /* Màu của dòng kẻ */
+    width: 97vw; /* Chiều rộng của dòng kẻ */
+    margin-top: 3.4vw; /* Khoảng cách trên và dưới dòng kẻ */  
+}
+
+.danhmuccap1 {
+    font-family: 'Oswald';
+    font-weight: bold;
+    color: #365c04;
+    margin-top: -2.7vw;
+    margin-left: 2vw;
+
+}
+
+.osach1 {
+    border: 0.1vw solid #688345;
+    border-radius: 1.5vw;
+    width: 97vw;
+    height: 23vw;
+    margin-right: 1vw;
+    margin-left: 1vw;
+    margin-top: 2vw; /* Thêm khoảng cách từ trên xuống */
+    background-color: #f9f9f9;
+}
+
+.ngang1 {
+    border: none; /* Bỏ bỏ viền mặc định */
+    height: 0.2vw; /* Độ dày của dòng kẻ */
+    background-color: #688345; /* Màu của dòng kẻ */
+    width: 97vw; /* Chiều rộng của dòng kẻ */
+    margin-top: 3.4vw; /* Khoảng cách trên và dưới dòng kẻ */  
+}
+
+.osach2 {
+    border: 0.1vw solid #688345;
+    border-radius: 1.5vw;
+    width: 97vw;
+    height: 23vw;
+    margin-right: 1vw;
+    margin-left: 1vw;
+    margin-top: 2vw; /* Thêm khoảng cách từ trên xuống */
+    background-color: #f9f9f9;
+}
+
+.ngang2 {
+    border: none; /* Bỏ bỏ viền mặc định */
+    height: 0.2vw; /* Độ dày của dòng kẻ */
+    background-color: #688345; /* Màu của dòng kẻ */
+    width: 97vw; /* Chiều rộng của dòng kẻ */
+    margin-top: 3.4vw; /* Khoảng cách trên và dưới dòng kẻ */  
+}
+
+footer {
+    position: relative; 
+    background-color: #688345; /* Màu nền */
+    color: #000000;            /* Màu chữ trắng */
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Đổ bóng nhẹ */
+    margin-top: 5vw; /* Đẩy footer xuống cuối trang */
+    height: 24vw;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logohya1 { 
+    position: absolute; /* Đặt vị trí nếu cần */
+    left: 0.2vw; /* Điều chỉnh khoảng cách từ bên trái */
+    top: 0.1vw; /* Đặt vị trí dọc nếu cần */
+    align-items: center;
+}
+
+.logohya1 img {
+    width: 10vw;   /* Đặt chiều rộng cho hình ảnh */
+    height: 12vw;  /* Đặt chiều cao cho hình ảnh */
+    object-fit: cover; /* Đảm bảo hình ảnh lấp đầy không gian mà không bị méo */
+}
+
+.hya-books1 {
+    color: #eef1e9;
+    font-family: 'Inknut Antiqua', serif;
+    font-weight: 800; /*extrabold*/
+
+    position: absolute;
+    left: 11.2vw;
+    top: 3.6vw;
+    
+    font-style: normal;
+    text-align: left;
+    font-weight: 800;
+    font-size: 3vw;
+    /* or 100% */
+    display: flex;
+}
+
+.hya-books1 a {
+    color: inherit; /* Giữ nguyên màu của chữ theo class cha */
+    text-decoration: none; /* Xóa gạch chân mặc định của liên kết */
+}
+
+
+.gioithieu1 {
+    position: absolute; /* Đặt vị trí nếu cần */
+    line-height: 1.5;
+    color: white;
+    text-align: left;
+    top: 11.4vw;
+    left: 2vw;
+    font-family: 'Inter', sans-serif;
+    font-size: small;
+}
+
+.kedoc {
+    position: absolute; /* Đặt vị trí nếu cần */
+    left: 35vw; /* Điều chỉnh khoảng cách từ bên trái */
+    top: 1vw; /* Đặt vị trí dọc nếu cần */
+    bottom: 0.1vw;
+    border-right: 0.1vw solid #c8f7c7; /* Tạo đường kẻ dọc */
+    height: 22vw; /* Chiều cao của đường kẻ */
+
+}
+
+.fblink {
+    position: absolute; /* Đặt vị trí nếu cần */
+    left: 2.7vw; /* Điều chỉnh khoảng cách từ bên trái */
+    top: 19vw; /* Đặt vị trí dọc nếu cần */
+}
+
+.fblink img {
+    width: 3vw;   /* Đặt chiều rộng cho hình ảnh */
+    height: 3vw;  /* Đặt chiều cao cho hình ảnh */
+    object-fit: cover; /* Đảm bảo hình ảnh lấp đầy không gian mà không bị méo */
+}
+
+.xlink {
+    position: absolute; /* Đặt vị trí nếu cần */
+    left: 7vw; /* Điều chỉnh khoảng cách từ bên trái */
+    top: 19vw; /* Đặt vị trí dọc nếu cần */
+}
+
+.xlink img {
+    width: 3.3vw;   /* Đặt chiều rộng cho hình ảnh */
+    height: 3.3vw;  /* Đặt chiều cao cho hình ảnh */
+    object-fit: cover; /* Đảm bảo hình ảnh lấp đầy không gian mà không bị méo */
+}
+
+.inslink {
+    position: absolute; /* Đặt vị trí nếu cần */
+    left: 11.7vw; /* Điều chỉnh khoảng cách từ bên trái */
+    top: 19vw; /* Đặt vị trí dọc nếu cần */
+}
+
+.inslink img {
+    width: 3.3vw;   /* Đặt chiều rộng cho hình ảnh */
+    height: 3.3vw;  /* Đặt chiều cao cho hình ảnh */
+    object-fit: cover; /* Đảm bảo hình ảnh lấp đầy không gian mà không bị méo */
+}
+
+.dichvu {
+    color: inherit; /* Giữ nguyên màu của chữ theo class cha */
+    position: absolute; /* Đặt vị trí nếu cần */
+    line-height: 1.5;
+    color: white;
+    text-align: left;
+    top: 1vw;
+    left: 38vw;
+    font-family: 'Inter', sans-serif;
+    font-size: small;
+}
+
+.dichvu a {
+    color: inherit; /* Giữ nguyên màu của chữ theo class cha */
+    text-decoration: none; /* Xóa gạch chân mặc định của liên kết */
+}
+
+.hotro {
+    position: absolute; /* Đặt vị trí nếu cần */
+    line-height: 1.5;
+    color: white;
+    text-align: left;
+    top: 1vw;
+    left: 68vw;
+    font-family: 'Inter', sans-serif;
+    font-size: small;
+
+}
+.hotro a {
+    color: inherit; /* Giữ nguyên màu của chữ theo class cha */
+    text-decoration: none; /* Xóa gạch chân mặc định của liên kết */
+}
+
+.taikhoancuatoi {
+    position: absolute; /* Đặt vị trí nếu cần */
+    line-height: 1.5;
+    color: white;
+    text-align: left;
+    top: 11vw;
+    left: 38vw;
+    font-family: 'Inter', sans-serif;
+    font-size: small;
+}
+
+.taikhoancuatoi a {
+    color: inherit; /* Giữ nguyên màu của chữ theo class cha */
+    text-decoration: none; /* Xóa gạch chân mặc định của liên kết */
+}
+
+.lienhe {
+    position: absolute; /* Đặt vị trí nếu cần */
+    line-height: 1.5;
+    color: white;
+    text-align: left;
+    top: 11vw;
+    left: 68vw;
+    font-family: 'Inter', sans-serif;
+    font-size: small;
+
+}
+
+.lienhe a {
+    color: inherit; /* Giữ nguyên màu của chữ theo class cha */
+    text-decoration: none; /* Xóa gạch chân mặc định của liên kết */
+}
+
+.bold {
+    font-weight: 900;
+    font-size: larger;
+}
+
+
+
+
+
+
+
+
+
+
+
+
