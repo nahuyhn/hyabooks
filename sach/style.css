@@ -21,6 +21,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 999;
 }
 
 
@@ -401,7 +402,7 @@ footer {
 
 /* Product image */
 .product-image-container {
-    width: 15vw;
+    width: 20vw;
     margin: 5vw;
 }
 .product-image {
@@ -451,13 +452,13 @@ footer {
 }
 
 .product-image-container {
-    width: 25vw; /* Đặt kích thước cụ thể cho container */
+    width: 30vw; /* Đặt kích thước cụ thể cho container */
     margin: 20px auto; /* Canh giữa và tạo khoảng cách */
     padding: 10px; /* Khoảng cách giữa hình ảnh và khung */
     border: 2px solid #fefefe; /* Tạo khung xung quanh container */
     border-radius: 5px; /* Bo tròn các góc */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Tạo hiệu ứng đổ bóng */
-    margin-left: 14vw;
+    margin-left: 8vw;
     background-color: #ffffff;
     margin-top: 4vw;
 }
@@ -468,6 +469,153 @@ footer {
     height: auto; /* Giữ nguyên tỷ lệ khung hình */
     border-radius: 10px; /* Bo tròn hình ảnh cùng với khung nếu cần */
 }
+
+.product-infor-container {
+    position: absolute;
+    width: 47vw; /* Độ rộng của khung */
+    height: 22vw;
+    padding: 20px; /* Khoảng cách bên trong khung */
+    border: 1px solid #ccc; /* Viền khung */
+    border-radius: 8px; /* Bo góc khung */
+    background-color: #f9f9f9; /* Màu nền của khung */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng cho khung */
+    font-family: Arial, sans-serif; /* Font chữ */
+    top: 12vw;
+    left: 41vw;
+}
+
+.product-infor-container span {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px; /* Cỡ chữ mặc định */
+    color: #333;
+}
+
+.v131_521 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+}
+
+.v131_525, .v131_526, .v131_527 {
+    font-size: 14px;
+    color: #555;
+}
+
+.v131_540, .v131_542 {
+    font-size: 12px;
+    color: #888;
+}
+
+.v131_528 {
+    font-size: 14px;
+    color: #555;
+}
+
+.v131_543 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #e60000; /* Màu đỏ cho giá */
+    z-index: 999;
+}
+
+.v131_544 {
+    position: absolute;
+    top: 35vw;
+    left: 41vw;
+    width: 47vw;
+    height: 17.5vw;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px 0;
+}
+
+
+.v131_544 span, .v131_544 input, .v131_544 button {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.v131_545 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.v131_546 {
+    color: #555;
+}
+
+.v131_547 {
+    color: #1e88e5; /* Màu xanh dương cho nút 'Thay đổi' */
+    cursor: pointer;
+}
+
+.v131_576 {
+    color: #1e88e5;
+    cursor: pointer;
+}
+
+.v131_548 {
+    color: #666;
+    font-size: 13px;
+}
+
+.v131_566 {
+    font-size: 13px;
+    color: #888;
+}
+
+
+.product-description-container {
+    position: absolute;
+    max-width: 80vw; /* Đặt chiều rộng tối đa */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto; /* Canh giữa khung */
+    font-family: Arial, sans-serif;
+    left: 8vw;
+}
+
+.product-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.description, .conclusion {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.details-list {
+    list-style-type: none; /* Loại bỏ dấu đầu dòng */
+    padding: 0; /* Bỏ padding */
+    margin: 10px 0; /* Tạo khoảng cách cho danh sách */
+}
+
+.details-list li {
+    margin-bottom: 8px; /* Tạo khoảng cách giữa các mục */
+    font-size: 16px; /* Kích thước font cho danh sách */
+}
+
+.details-list li strong {
+    color: #1e88e5; /* Màu chữ cho các tiêu đề */
+}
+
+
+
 
 
 

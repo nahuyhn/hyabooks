@@ -79,9 +79,10 @@ text-decoration: underline;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
     display: inline-block;    /* Chỉ bao bọc kích thước nội dung */
     text-align: center;       /* Căn giữa các phần tử bên trong */
-    margin-left: 13vw;        /* Di chuyển khối sang phải bằng cách thêm khoảng cách bên trái */
+    margin-left: 8vw;        /* Di chuyển khối sang phải bằng cách thêm khoảng cách bên trái */
     /* Hoặc sử dụng transform */
     /* transform: translateX(30px); /* Di chuyển khối sang phải 30px */
+    width: 30vw;
 }
 
 
@@ -93,7 +94,7 @@ text-decoration: underline;
 
 .add-to-cart, .buy-now {
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 18px;
     cursor: pointer;
     border: none;
     border-radius: 5px;
@@ -148,7 +149,7 @@ text-decoration: underline;
             <a href="notif.html"><img src="../assets/css/image/notif.png" alt="Notification" /></a>
         </div>
         <div class="giohang">
-            <a href="cart.html"><img src="../assets/css/image/giohang.png" alt="Cart"></a>
+            <a href="../cart.html"><img src="../assets/css/image/giohang.png" alt="Cart"></a>
         </div>
         <div class="acc">
             <a href="account.html"><img src="../assets/css/image/acc.png" alt="Account" /></a>
@@ -174,16 +175,45 @@ text-decoration: underline;
         </div>
     </div>
 
-    
-    
+    <div class="product-infor-container">
+        <span class="v131_521">Chân Trời Sáng Tạo - Tiếng Việt tập 1 (2023)</span>
+        <span class="v131_525">Nhà cung cấp: Cty Phương Nam</span>
+        <span class="v131_527">Tác giả: Nhiều Tác Giả</span>
+        <span class="v131_526">Nhà xuất bản: Giáo Dục Việt Nam</span>
+        <span class="v131_540">(0 đánh giá)</span>
+        <span class="v131_542">Đã bán 123</span>
+        <span class="v131_528">Hình thức bìa: Bìa Mềm</span>
+        <div class="v131_534"></div><div class="v131_538"></div>
+        <div class="v131_536"></div><div class="v131_539"></div>
+        <div class="v131_537"></div><div class="name"></div>
+        <span class="v131_543" style="color: red;font-size: large  ;">40.000 đ</span>
+    </div>
 
-    
-    
+    <div class="v131_544">
+        <span class="v131_545">Thông tin vận chuyển</span>
+        <span id="current-address" class="v131_546">Giao hàng đến 10/9 Thoại Ngọc Hầu, Quận Tân Phú, Hồ Chí Minh</span>
+        <input type="text" id="new-address-input" class="v131_546" placeholder="Nhập địa chỉ mới" style="display: none;">
+        <button id="save-address-btn" style="display: none;">Lưu</button>
+        <span id="change-address-btn" class="v131_547">Thay đổi</span>
+        <span class="v131_576">Xem thêm</span>
+        <span class="v131_548">Dự kiến giao Thứ sáu - 11/10</span>
+        <span class="v131_566">Giao hàng tiêu chuẩn</span>
+    </div>
 
-    <div class="o-chitiet"></div>
-    <div class="o-vanchuyen"></div>
-    <div class="o-sotien"></div>
-    <div class="o-them"></div>
-    <div class="o-mota"></div>
+    <div class="product-description-container">
+        <h2 class="product-title">Tiếng Việt 1 - Tập 1</h2>
+        <p class="description">Thuộc bộ sách “Chân Trời Sáng Tạo” được biên soạn nhằm giúp học sinh lớp 1 phát triển kỹ năng ngôn ngữ một cách toàn diện. Dưới đây là một số thông tin chi tiết về sản phẩm này:</p>
+        <ul class="details-list">
+            <li><strong>Tác giả:</strong> Trịnh Cam Ly, Xuân Thị Nguyệt Hà, Hà Thị Thanh Nam, Thái Thị Quỳnh Trang.</li>
+            <li><strong>Nhà xuất bản:</strong> Giáo Dục Việt Nam.</li>
+            <li><strong>Năm xuất bản:</strong> 2023.</li>
+            <li><strong>Hình thức bìa:</strong> Bìa mềm.</li>
+            <li><strong>Số trang:</strong> 56 trang.</li>
+            <li><strong>Kích thước:</strong> 26.5 x 19 x 0.2 cm.</li>
+            <li><strong>Nội dung:</strong> Sách bao gồm 18 chủ đề học khác nhau, mỗi chủ đề có nhiều bài học về âm vần, giúp học sinh hứng thú với việc học Tiếng Việt.</li>
+        </ul>
+        <p class="conclusion">Bộ sách này được thiết kế với các bài học đa dạng và sinh động, phù hợp với độ tuổi học sinh lớp 1, giúp các em phát triển kỹ năng ngôn ngữ một cách tự nhiên và hiệu quả.</p>
+    </div>
+    
 </body>
 </html>

@@ -9,6 +9,59 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .v01 {
+            z-index: 999;
+        }
+        .v02 {
+            height: 8vw;
+        }
+        .cart-container {
+            margin-top: 2vw;
+            border: 2px solid #ccc;
+            border-radius: 15px;
+            padding: 50px;
+            max-width: 100vw;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .title0 {
+            position: relative;
+            font-weight: 700;
+            margin-left: 4vw;
+            font-size: larger;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <div class="v01"></div>
@@ -41,65 +94,139 @@
             <a href="account.html"><img src="./assets/css/image/acc.png" alt="Account" /></a>
         </div>
     </div>
-    <footer>
-        <div class="kedoc"></div>
-        <div class="logohya1">
-            <img src="./assets/css/image/logohya.png" alt="Logo">
+
+    <div class="cart-container">
+        <span class="title0" style="margin: 2vw;margin-bottom: 4vw;">GIỎ HÀNG CỦA BẠN</span>
+        <div id="cart-items"></div>
+    </div>
+    <button id="checkout-button" style="color: white;background-color: #688345;margin: 20px 4vw; padding: 10px 20px; font-size: 16px; cursor: pointer;">Thanh toán</button>
+
+    <!-- Thanh Toán -->
+    <div id="payment-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Xác nhận thanh toán</h2>
+            <div id="order-summary"></div>
+            <form id="payment-form">
+                <label for="name">Tên khách hàng:</label>
+                <input type="text" id="name" name="name" required>
+                <br>
+                <label for="address">Địa chỉ:</label>
+                <input type="text" id="address" name="address" required>
+                <br>
+                <label for="phone">Số điện thoại:</label>
+                <input type="tel" id="phone" name="phone" required>
+                <br>
+                <label for="payment-method">Hình thức thanh toán:</label>
+                <br>
+                <input type="radio" id="cod" name="payment-method" value="cod" required>
+                <label for="cod">Thanh toán khi nhận hàng</label>
+                <br>
+                <input type="radio" id="bank-transfer" name="payment-method" value="bank-transfer">
+                <label for="bank-transfer">Thanh toán qua chuyển khoản</label>
+                <br><br>
+                <button type="submit" style="background-color: #688345; color: white;">Xác nhận</button>
+            </form>
         </div>
-        <div class="hya-books1">
-            <a href="index.html">HYA<br>BOOKS</a>
-        </div>
-        <div class="gioithieu1">
-            613 Âu cơ, Phường Phú Trung, Quận Tân Phú, TP.HCM.<br>
-            HYABooks.com nhận đặt hàng trực tuyến và giao hàng tận nơi.<br>
-            KHÔNG hỗ trợ đặt mua và nhận hàng trực tiếp tại văn phòng<br>
-            cũng như tất cả Hệ Thống HYABooks trên toàn quốc.
-        </div>
-        <div class="fblink">
-            <a href="https://www.facebook.com/profile.php?id=61566572446709">
-                <img src="./assets/css/image/image 108.png" alt="facebook">
-            </a>
-        </div>
-        <div class="xlink">
-            <a href="https://www.facebook.com/profile.php?id=61566572446709">
-                <img src="./assets/css/image/image 109.png" alt="twitter">
-            </a>
-        </div>
-        <div class="inslink">
-            <a href="https://www.instagram.com/hya.books/">
-                <img src="./assets/css/image/Group 43.png" alt="instagram">
-            </a>
-        </div>
-        <div class="dichvu">
-            <span class="bold">DỊCH VỤ</span><br>
-            <a href="dichvu.html">
-            Điều khoản sử dụng<br>
-            Chính sách bảo mật thông tin cá nhân<br>
-            Chính sách bảo mật thanh toán<br>
-            Giới thiệu</a>
-        </div>
-        <div class="hotro">
-            <span class="bold">HỖ TRỢ</span><br>
-            <a href="hotro.html">
-            Chính sách đổi - trả - hoàn tiền<br>
-            Chính sách bảo hành - bồi hoàn<br>
-            Chính sách vận chuyển<br>
-            Chính sách khách sỉ</a>
-        </div>
-        <div class="taikhoancuatoi">
-            <span class="bold">TÀI KHOẢN CỦA TÔI</span><br>
-            <a href="taikhoancuatoi.html">
-            Đăng nhập/Tạo mới tài khoản<br>
-            Thay đổi địa chỉ khách hàng<br>
-            Chi tiết tài khoản<br>
-            Lịch sử mua hàng</a>
-        </div>
-        <div class="lienhe">
-            <span class="bold">LIÊN HỆ</span><br>
-            613 Âu Cơ, Tan Phu, TP. HCM<br>
-            cskh@hyabooks.com<br> 
-            0797909109<br>
-        </div>
-    </footer>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            const cartItemsContainer = document.getElementById("cart-items");
+
+            function updateCart() {
+                cartItemsContainer.innerHTML = ""; // Xóa nội dung hiện tại
+                if (cart.length === 0) {
+                    cartItemsContainer.innerHTML = "<br><p>Giỏ hàng của bạn hiện đang trống.</p>";
+                } else {
+                    cart.forEach((item, index) => {
+                        cartItemsContainer.innerHTML += `
+                            <div class="cart-item">
+                                <img src="${item.image}" alt="${item.title}" class="cart-item-image">
+                                <div class="cart-item-info">
+                                    <h2 class="cart-item-title">${item.title}</h2>
+                                    <p class="cart-item-price">Giá: ${item.price} đ</p>
+                                    <p class="cart-item-quantity">Số lượng: 1</p> <!-- Số lượng luôn là 1 -->
+                                </div>
+                                <button class="remove-item" style="background-color: #688345; color: white;" data-index="${index}">Xóa</button> <!-- Nút xóa -->
+                            </div>
+                        `;
+                    });
+
+                    // Thêm sự kiện cho nút xóa
+                    document.querySelectorAll('.remove-item').forEach(button => {
+                        button.addEventListener('click', function() {
+                            const index = this.getAttribute('data-index');
+                            cart.splice(index, 1); // Loại bỏ mục khỏi giỏ hàng
+                            localStorage.setItem("cart", JSON.stringify(cart)); // Cập nhật localStorage
+                            updateCart(); // Cập nhật lại giỏ hàng hiển thị
+                        });
+                    });
+                }
+            }
+
+            updateCart(); // Cập nhật giỏ hàng khi trang được tải
+
+            // Xử lý nút thanh toán
+            document.getElementById("checkout-button").addEventListener("click", function() {
+                if (cart.length > 0) {
+                    document.getElementById("order-summary").innerHTML = ""; // Xóa nội dung trước khi thêm mới
+                    let totalPrice = 0; // Biến lưu tổng tiền
+                    cart.forEach(item => {
+                        const price = parseFloat(item.price); // Chuyển đổi giá thành số
+                        totalPrice += price; // Tính tổng tiền (số lượng là 1)
+                        document.getElementById("order-summary").innerHTML += `
+                            <p>${item.title} - Giá: ${price} đ - Số lượng: 1</p>
+                        `;
+                    });
+                    document.getElementById("payment-modal").style.display = "block"; // Hiện modal
+                } else {
+                    alert("Giỏ hàng của bạn hiện đang trống!");
+                }
+            });
+
+            // Đóng modal khi nhấn vào dấu "x"
+            document.querySelector(".close").addEventListener("click", function() {
+                document.getElementById("payment-modal").style.display = "none";
+            });
+
+            // Đóng modal khi nhấn ra ngoài modal
+            window.onclick = function(event) {
+                const modal = document.getElementById("payment-modal");
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            };
+
+            // Xử lý xác nhận thanh toán
+            document.getElementById("payment-form").addEventListener("submit", function(event) {
+                event.preventDefault(); // Ngăn form reload lại trang
+                const name = document.getElementById("name").value;
+                const address = document.getElementById("address").value;
+                const phone = document.getElementById("phone").value;
+                const paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+
+                // Thông tin đơn hàng và thanh toán
+                console.log(`Tên: ${name}`);
+                console.log(`Địa chỉ: ${address}`);
+                console.log(`Số điện thoại: ${phone}`);
+                console.log(`Hình thức thanh toán: ${paymentMethod}`);
+
+                // Tạo chuỗi thông tin đơn hàng
+                const orderDetails = cart.map(item => `${item.title} - Giá: ${item.price} đ - Số lượng: 1`).join('; ');
+
+                // Lưu thông tin vào localStorage
+                localStorage.setItem('name', name);
+                localStorage.setItem('address', address);
+                localStorage.setItem('phone', phone);
+                localStorage.setItem('order', orderDetails);
+
+                // Chuyển hướng sang trang thành công
+                window.location.href = "success.html"; // Điều hướng đến trang success.html
+                localStorage.removeItem("cart"); // Xóa giỏ hàng
+            });
+        });
+    </script>
 </body>
 </html>

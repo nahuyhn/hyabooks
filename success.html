@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh toán thành công</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .success-message {
+            text-align: center;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        .success-message h1 {
+            color: #688345;
+            margin-bottom: 20px;
+        }
+        .success-message p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .order-details {
+            margin: 20px 0;
+            text-align: left;
+        }
+        .success-message a {
+            text-decoration: none;
+            color: white;
+            background-color: #688345;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .success-message a:hover {
+            background-color: #55732d;
+        }
+    </style>
+</head>
+<body>
+    <div class="success-message">
+        <h1>Thanh toán thành công!</h1>
+        <p>Cảm ơn bạn đã đặt hàng. Chúng tôi sẽ liên hệ sớm để xác nhận đơn hàng của bạn.</p>
+        <div class="order-details" id="order-details"></div>
+        <a href="index.html">Quay về trang chủ</a>
+    </div>
+
+    <script>
+        // Lấy thông tin từ localStorage
+        const name = localStorage.getItem('name');
+        const address = localStorage.getItem('address');
+        const phone = localStorage.getItem('phone');
+        const order = localStorage.getItem('order');
+
+        // Hiển thị thông tin đơn hàng
+        const orderDetailsElement = document.getElementById('order-details');
+        orderDetailsElement.innerHTML = `
+            <strong>Thông tin đơn hàng:</strong><br>
+            Tên khách hàng: ${name}<br>
+            Địa chỉ: ${address}<br>
+            Số điện thoại: ${phone}<br>
+            <strong>Chi tiết đơn hàng:</strong><br>
+        ${order.split('; ').map(item => `<p>${item}</p>`).join('')}
+        `;
+    </script>
+</body>
+</html>
