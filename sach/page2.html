@@ -12,117 +12,112 @@
     
     <style>
         * {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-}
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-font-family: Arial, sans-serif;
-line-height: 1.6;
-background-color: #e8e4e1;
-color: #333;
-}
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #e8e4e1;
+            color: #333;
+        }
 
-.container {
-max-width: 800px;
-margin: 30px auto;
-padding: 20px;
-background-color: #fff;
-border-radius: 8px;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-h1 {
-font-size: 2.2em;
-margin-bottom: 20px;
-color: #2c3e50;
-text-align: center;
-}
+        h1 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            text-align: center;
+        }
 
-h2 {
-font-size: 1.6em;
-margin: 20px 0 10px;
-color: #e74c3c;
-border-bottom: 2px solid #e74c3c;
-padding-bottom: 5px;
-}
+        h2 {
+            font-size: 1.6em;
+            margin: 20px 0 10px;
+            color: #e74c3c;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 5px;
+        }
 
-p {
-margin-bottom: 15px;
-text-align: justify;
-}
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
 
-p.signed {
-text-align: right;
-margin-top: 40px;
-font-weight: bold;
-}
+        p.signed {
+            text-align: right;
+            margin-top: 40px;
+            font-weight: bold;
+        }
 
-strong {
-color: #2980b9;
-}
+        strong {
+            color: #2980b9;
+        }
 
-a {
-color: #2980b9;
-text-decoration: none;
-}
+        a {
+            color: #2980b9;
+            text-decoration: none;
+        }
 
-a:hover {
-text-decoration: underline;
-}
+        a:hover {
+            text-decoration: underline;
+        }
 
-.product-actions-container {
-    background-color: white; /* Màu nền trắng cho khối */
-    padding: 20px;           /* Khoảng đệm xung quanh các nút */
-    border-radius: 10px;      /* Bo tròn các góc của khối */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
-    display: inline-block;    /* Chỉ bao bọc kích thước nội dung */
-    text-align: center;       /* Căn giữa các phần tử bên trong */
-    margin-left: 8vw;        /* Di chuyển khối sang phải bằng cách thêm khoảng cách bên trái */
-    /* Hoặc sử dụng transform */
-    /* transform: translateX(30px); /* Di chuyển khối sang phải 30px */
-    width: 30vw;
-}
+        .product-actions-container {
+            background-color: white; /* Màu nền trắng cho khối */
+            padding: 20px;           /* Khoảng đệm xung quanh các nút */
+            border-radius: 10px;      /* Bo tròn các góc của khối */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+            display: inline-block;    /* Chỉ bao bọc kích thước nội dung */
+            text-align: center;       /* Căn giữa các phần tử bên trong */
+            margin-left: 8vw;        /* Di chuyển khối sang phải bằng cách thêm khoảng cách bên trái */
+            width: 30vw;
+        }
 
+        .product-actions {
+            display: flex;
+            gap: 1vw;
+            margin-top: 1vw;
+        }
 
-.product-actions {
-    display: flex;
-    gap: 1vw;
-    margin-top: 1vw;
-}
+        .add-to-cart, .buy-now {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
 
-.add-to-cart, .buy-now {
-    padding: 10px 20px;
-    font-size: 18px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
+        .add-to-cart {
+            background-color: #688345; /* Màu xanh lá */
+            color: white;
+        }
 
-.add-to-cart {
-    background-color: #688345; /* Màu xanh lá */
-    color: white;
-}
+        .add-to-cart:hover {
+            background-color: #175bbb; /* Màu khi hover */
+        }
 
-.add-to-cart:hover {
-    background-color: #175bbb; /* Màu khi hover */
-}
+        .buy-now {
+            background-color: #688345; /* Màu đỏ */
+            color: white;
+        }
 
-.buy-now {
-    background-color: #688345; /* Màu đỏ */
-    color: white;
-}
+        .buy-now:hover {
+            background-color: #175bbb; /* Màu khi hover */
+        }
 
-.buy-now:hover {
-    background-color: #175bbb; /* Màu khi hover */
-}
-
-
-
-</style>
-<script src="mainpg.js"></script>
+    </style>
+    <script src="mainpg.js"></script>
 </head>
 <body>
     <div class="v01"></div>
@@ -156,8 +151,7 @@ text-decoration: underline;
         </div>
     </div>
 
-
-    <!--SanPham-->
+    <!-- SanPham -->
     <div class="product-image-container">
         <img id="productImage" src="../assets/css/image/tv12.png" alt="Book Image" class="product-image" onclick="openModal()">
     </div>
@@ -170,7 +164,11 @@ text-decoration: underline;
 
     <div class="product-actions-container">
         <div class="product-actions">
-            <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            <button class="add-to-cart" 
+                data-id="book2" 
+                data-title="Chân Trời Sáng Tạo - Tiếng Việt 1 tập 2" 
+                data-price="39000" 
+                data-image="../assets/css/image/tv12.png">Thêm vào giỏ hàng</button>
             <button class="buy-now">Mua ngay</button>
         </div>
     </div>
@@ -186,7 +184,7 @@ text-decoration: underline;
         <div class="v131_534"></div><div class="v131_538"></div>
         <div class="v131_536"></div><div class="v131_539"></div>
         <div class="v131_537"></div><div class="name"></div>
-        <span class="v131_543" style="color: red;font-size: large  ;">40.000 đ</span>
+        <span class="v131_543" style="color: red;font-size: large;">39.000 đ</span>
     </div>
 
     <div class="v131_544">
@@ -204,16 +202,15 @@ text-decoration: underline;
         <h2 class="product-title">Tiếng Việt 1 - Tập 2</h2>
         <p class="description">Thuộc bộ sách “Chân Trời Sáng Tạo” được biên soạn nhằm giúp học sinh lớp 1 phát triển kỹ năng ngôn ngữ một cách toàn diện. Dưới đây là một số thông tin chi tiết về sản phẩm này:</p>
         <ul class="details-list">
-            <li><strong>Tác giả:</strong> Trịnh Cam Ly, Xuân Thị Nguyệt Hà, Hà Thị Thanh Nam, Thái Thị Quỳnh Trang.</li>
-            <li><strong>Nhà xuất bản:</strong> Giáo Dục Việt Nam.</li>
-            <li><strong>Năm xuất bản:</strong> 2023.</li>
-            <li><strong>Hình thức bìa:</strong> Bìa mềm.</li>
-            <li><strong>Số trang:</strong> 56 trang.</li>
-            <li><strong>Kích thước:</strong> 26.5 x 19 x 0.2 cm.</li>
-            <li><strong>Nội dung:</strong> Sách bao gồm 18 chủ đề học khác nhau, mỗi chủ đề có nhiều bài học về âm vần, giúp học sinh hứng thú với việc học Tiếng Việt.</li>
+            <li><strong>Tác giả:</strong> Trịnh Cam Ly, Lê Thị Mỹ Hạnh</li>
+            <li><strong>Nhà xuất bản:</strong> Giáo dục Việt Nam</li>
+            <li><strong>Định dạng:</strong> Bìa mềm</li>
+            <li><strong>Giá bìa:</strong> 39.000 VNĐ</li>
+            <li><strong>Xuất bản:</strong> 2023</li>
         </ul>
-        <p class="conclusion">Bộ sách này được thiết kế với các bài học đa dạng và sinh động, phù hợp với độ tuổi học sinh lớp 1, giúp các em phát triển kỹ năng ngôn ngữ một cách tự nhiên và hiệu quả.</p>
+        <p class="signed">Lưu ý: Giá có thể thay đổi theo từng thời điểm.</p>
     </div>
-    
+
+    <script src="mainpg.js"></script>
 </body>
 </html>
