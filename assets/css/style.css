@@ -21,6 +21,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 999;
 }
 
 
@@ -174,6 +175,25 @@ body {
 }
 
 .danhmuccap1 {
+    position: absolute;
+    font-family: 'Oswald';
+    font-weight: bold;
+    color: #365c04;
+    margin-top: -2.7vw;
+    margin-left: 2vw;
+
+}
+.danhmuccap2 {
+    position: absolute;
+    font-family: 'Oswald';
+    font-weight: bold;
+    color: #365c04;
+    margin-top: -2.7vw;
+    margin-left: 2vw;
+
+}
+.danhmuccap3 {
+    position: absolute;
     font-family: 'Oswald';
     font-weight: bold;
     color: #365c04;
@@ -439,6 +459,23 @@ footer {
 .cart-item-price {
     font-size: 16px;
     color: #e74c3c;
+}
+
+.banner-qc img {
+    position:absolute;
+    top: 9vw;
+    bottom: 2vw;
+    left: 7vw;
+    width: 45vw;
+}
+
+.banner2 img {
+    position:absolute;
+    top: 9vw;
+    bottom: 2vw;
+    left: 55vw;
+    width: 36vw;
+    height: 28vw;
 }
 
 
