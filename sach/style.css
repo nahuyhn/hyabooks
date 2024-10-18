@@ -451,11 +451,11 @@ footer {
 }
 
 .product-image-container {
-    width: 21vw; /* Đặt kích thước cụ thể cho container */
+    width: 25vw; /* Đặt kích thước cụ thể cho container */
     margin: 20px auto; /* Canh giữa và tạo khoảng cách */
     padding: 10px; /* Khoảng cách giữa hình ảnh và khung */
-    border: 2px solid #2980b9; /* Tạo khung xung quanh container */
-    border-radius: 10px; /* Bo tròn các góc */
+    border: 2px solid #fefefe; /* Tạo khung xung quanh container */
+    border-radius: 5px; /* Bo tròn các góc */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Tạo hiệu ứng đổ bóng */
     margin-left: 14vw;
     background-color: #ffffff;
