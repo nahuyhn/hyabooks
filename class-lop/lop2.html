@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="vn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- reset css -->
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .v02 {
+            height: 8vw;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        #sortPrice {
+            margin-bottom: 20px; /* Tạo khoảng cách giữa ô sắp xếp và danh sách sản phẩm */
+        }
+
+        #product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start; /* Đẩy các sản phẩm về phía bên trái */
+            gap: 10px; /* Thu nhỏ khoảng cách giữa các sản phẩm */
+        }
+
+        .product {
+            background-color: #fff; /* Nền màu trắng cho ô sản phẩm */
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 20px;
+            left: 3vw;
+            width: 15vw; /* Chiều rộng của khung hình vuông */
+            height: 20vw; /* Chiều cao khung hình vuông */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            transition: box-shadow 0.3s ease; /* Hiệu ứng đổ bóng */
+        }
+
+        .book-img {
+            width: 100px;
+            height: auto;
+            object-fit: cover; /* Hình ảnh vừa khít với khung */
+            margin-bottom: 10px;
+        }
+
+        .product h3, .product p {
+            margin: 5px 0;
+            text-align: center;
+        }
+
+        .product p {
+            color: red;
+        }
+
+        /* Hiệu ứng đổ bóng khi di chuột */
+        .product:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+        footer {
+            height: 4vw;
+        }
+        a {
+    text-decoration: none; /* Bỏ dấu gạch chân */
+    color: inherit; /* Giữ nguyên màu của phần tử chứa */
+}
+
+a:hover {
+    text-decoration: none; /* Không thêm gạch chân khi di chuột */
+    color: inherit; /* Giữ nguyên màu khi hover */
+}
+    </style>
+</head>
+<body>
+    <div class="v01"></div>
+    <div class="v02">
+        <div class="logohya">
+            <a href="../index.html">
+                <img src="../assets/css/image/logohya.png" alt="Logo">
+            </a>
+        </div>
+        <div class="hya-books">
+            <a href="../index.html">HYA<br>BOOKS</a>
+        </div>
+        <div class="menu">
+            <img src="../assets/css/image/menu.png" alt="Menu" />
+        </div>
+        <div class="more1">
+            <img src="../assets/css/image/more1.png" alt="More" />
+        </div>
+        <div class="search">
+            <img src="../assets/css/image/search.png" alt="Search" />
+            <input type="text" id="searchInput" class="search-input" placeholder="Tìm kiếm...">
+        </div>
+        <div class="notif">
+            <a href="../notif.html"><img src="../assets/css/image/notif.png" alt="Notification" /></a>
+        </div>
+        <div class="giohang">
+            <a href="../cart.html"><img src="../assets/css/image/giohang.png" alt="Cart"></a>
+        </div>
+        <div class="acc">
+            <a href="../account.html"><img src="../assets/css/image/acc.png" alt="Account" /></a>
+        </div>
+    </div>
+
+    <div class="container" style="font-size: large;">
+        <br>
+        <h1 style="color: #688345;font-size: larger;font-weight: 800;">Sách giáo khoa Lớp 2</h1><br>
+        <label for="sortPrice">Sắp xếp theo giá:</label>
+        <select id="sortPrice">
+            <option value="asc">Thấp đến cao</option>
+            <option value="desc">Cao đến thấp</option>
+        </select>
+        
+        <div id="product-list" style="font-size: large;">
+            
+            <div class="product" data-price="40000" data-name="tiếng việt 1 tập 1">
+                <a href="../sach/page1.html"><img src="../assets/css/image/tv1.png" alt="Tiếng Việt 1" class="book-img">
+                    <h3>Tiếng Việt 1 tập 1</h3>
+                    <p>40000vnđ</p></a>
+            </div>
+            <div class="product" data-price="39000" data-name="tiếng việt 1 tập 2">
+                <a href="../sach/page2.html"><img src="../assets/css/image/tv12.png" alt="Tiếng Việt 1 tập 2" class="book-img">
+                    <h3>Tiếng Việt 1 tập 2</h3>
+                    <p>39000vnđ</p></a>
+            </div>
+            <div class="product" data-price="35000" data-name="toán 1 tập 1">
+                <a href="../sach/page3.html"><img src="../assets/css/image/toan1.png" alt="Toán 1" class="book-img">
+                    <h3>Toán 1 tập 1</h3>
+                    <p>35000vnđ</p></a>
+            </div>
+        </div>
+    </div>
+
+    <footer></footer>
+
+    <script>
+        // Chức năng sắp xếp theo giá
+        document.getElementById('sortPrice').addEventListener('change', function() {
+            let products = document.querySelectorAll('.product');
+            let productList = document.getElementById('product-list');
+            let sortedProducts = Array.from(products).sort((a, b) => {
+                let priceA = parseInt(a.getAttribute('data-price'));
+                let priceB = parseInt(b.getAttribute('data-price'));
+
+                if (this.value === 'asc') {
+                    return priceA - priceB;
+                } else {
+                    return priceB - priceA;
+                }
+            });
+
+            // Xóa danh sách sản phẩm hiện tại
+            productList.innerHTML = '';
+            // Thêm danh sách sản phẩm đã sắp xếp
+            sortedProducts.forEach(product => productList.appendChild(product));
+        });
+
+        // Chức năng tìm kiếm sản phẩm
+        document.getElementById('searchInput').addEventListener('input', function() {
+            let query = this.value.toLowerCase();
+            let products = document.querySelectorAll('.product');
+
+            products.forEach(function(product) {
+                let productName = product.getAttribute('data-name').toLowerCase();
+
+                if (productName.includes(query)) {
+                    product.style.display = 'flex'; // Hiện sản phẩm khớp với tìm kiếm
+                } else {
+                    product.style.display = 'none'; // Ẩn sản phẩm không khớp
+                }
+            });
+        });
+    </script>
+</body>
+</html>
