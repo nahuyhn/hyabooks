@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="vn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- reset css -->
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #e8e4e1;
+            color: #333;
+        }
+
+        .v02 {
+            height: 8vw;
+        }
+
+        .hya-books {
+            top: 2.5vw;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1.6em;
+            margin: 20px 0 10px;
+            color: #e74c3c;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 5px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        p.signed {
+            text-align: right;
+            margin-top: 40px;
+            font-weight: bold;
+        }
+
+        strong {
+            color: #2980b9;
+        }
+
+        a {
+            color: #2980b9;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .product-actions-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            text-align: center;
+            margin-left: 8vw;
+            width: 30vw;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 1vw;
+            margin-top: 1vw;
+        }
+
+        .add-to-cart, .buy-now {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-to-cart {
+            background-color: #688345;
+            color: white;
+        }
+
+        .add-to-cart:hover {
+            background-color: #175bbb;
+        }
+
+        .buy-now {
+            background-color: #688345;
+            color: white;
+        }
+
+        .buy-now:hover {
+            background-color: #175bbb;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none; /* Ẩn modal */
+            position: fixed; 
+            z-index: 1; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgb(0,0,0); 
+            background-color: rgba(0,0,0,0.4); 
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; 
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; 
+            max-width: 80vw; /* Chiều rộng tối đa cho modal */
+            max-height: 120vh; /* Chiều cao tối đa cho modal */
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .more1 {
+            top: 3.5vw;
+        }
+        /* Modal Styles */
+
+
+.menu-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu-list li {
+    padding: 15px;
+    border-bottom: 1px solid #ddd; /* Đường viền dưới cho mỗi mục */
+    color: #2980b9; /* Màu chữ */
+    cursor: pointer;
+    text-align: center; /* Căn giữa chữ */
+}
+
+.menu-list li:hover {
+    background-color: #688345; /* Màu nền khi hover */
+    color: white; /* Màu chữ khi hover */
+}
+a {
+    text-decoration: none; /* Bỏ dấu gạch chân */
+    color: inherit; /* Giữ nguyên màu của phần tử chứa */
+}
+
+a:hover {
+    text-decoration: none; /* Không thêm gạch chân khi di chuột */
+    color: inherit; /* Giữ nguyên màu khi hover */
+}
+    </style>
+    <script src="mainpg.js"></script>
+</head>
+<body>
+    <div class="v01"></div>
+    <div class="v02">
+        <div class="logohya">
+            <a href="../index.html">
+                <img src="../assets/css/image/logohya.png" alt="Logo">
+            </a>
+        </div>
+        <div class="hya-books">
+            <a href="../index.html">HYA<br>BOOKS</a>
+        </div>
+        <div class="menu" onclick="openBookListModal()">
+            <img src="../assets/css/image/menu.png" alt="Menu" />
+        </div>
+        <div class="more1" onclick="openBookListModal()">
+            <img src="../assets/css/image/more1.png" alt="More" />
+        </div>
+
+        <!-- Modal for book list -->
+<div id="menuModal" class="modal" onclick="closeMenuModal()">
+    <div class="modal-content" onclick="event.stopPropagation();"> <!-- Ngăn chặn sự kiện click từ việc đóng modal -->
+        <ul class="menu-list" style="font-size: medium;">
+            <a href="../class-lop/lop1.html"><li>Sách Giáo Khoa Lớp 1</li></a>
+            <a href="../class-lop/lop2.html"><li>Sách Giáo Khoa Lớp 2</li></a>
+            <a href="../class-lop/lop3.html"><li>Sách Giáo Khoa Lớp 3</li></a>
+            <a href="../class-lop/lop4.html"><li>Sách Giáo Khoa Lớp 4</li></a>
+            <a href="../class-lop/lop5.html"><li>Sách Giáo Khoa Lớp 5</li></a>
+            <a href="../class-lop/lop6.html"><li>Sách Giáo Khoa Lớp 6</li></a>
+            <a href="../class-lop/lop7.html"><li>Sách Giáo Khoa Lớp 7</li></a>
+            <a href="../class-lop/lop8.html"><li>Sách Giáo Khoa Lớp 8</li></a>
+            <a href="../class-lop/lop9.html"><li>Sách Giáo Khoa Lớp 9</li></a>
+            <a href="../class-lop/lop10.html"><li>Sách Giáo Khoa Lớp 10</li></a>
+            <a href="../class-lop/lop11.html"><li>Sách Giáo Khoa Lớp 11</li></a>
+            <a href="../class-lop/lop12.html"><li>Sách Giáo Khoa Lớp 12</li></a>
+        </ul>
+    </div>
+</div>
+
+<!-- Modal for enlarged image -->
+<div id="imageModal" class="modal" onclick="closeModal()">
+    <img class="modal-content" id="modalImage">
+</div>
+
+
+        <div class="search">
+            <a href="../tatcasanpham.html"><img src="../assets/css/image/search.png" alt="Search" />
+                <input type="text" class="search-input" placeholder="Tìm kiếm..."></a>
+        </div>
+        <div class="notif">
+            <a href="../notif.html"><img src="../assets/css/image/notif.png" alt="Notification" /></a>
+        </div>
+        <div class="giohang">
+            <a href="../cart.html"><img src="../assets/css/image/giohang.png" alt="Cart"></a>
+        </div>
+        <div class="acc">
+            <a href="../account.html"><img src="../assets/css/image/acc.png" alt="Account" /></a>
+        </div>
+    </div>
+
+    <!-- SanPham -->
+    <div class="product-image-container">
+        <img id="productImage" src="../assets/css/image/toan7.jpg" alt="Book Image" class="product-image" onclick="openModal()">
+    </div>
+
+    <!-- Modal for enlarged image -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <div class="product-actions-container">
+        <div class="product-actions">
+            <button class="add-to-cart" 
+                data-id="book10" 
+                data-title="Chân Trời Sáng Tạo - Toán 7 tập 1" 
+                data-price="39000" 
+                data-image="../assets/css/image/toan7.jpg">Thêm vào giỏ hàng</button>
+            <button class="buy-now" onclick="openPaymentModal()">Mua ngay</button> <!-- Thêm sự kiện onclick -->
+        </div>
+    </div>
+
+    <div class="product-infor-container">
+        <span class="v131_521">Chân Trời Sáng Tạo - Toán 7 tập 1</span>
+        <span class="v131_525">Nhà cung cấp: Cty Phương Nam</span>
+        <span class="v131_527">Tác giả: Nhiều Tác Giả</span>
+        <span class="v131_526">Nhà xuất bản: Giáo Dục Việt Nam</span>
+        <span class="v131_540">(0 đánh giá)</span>
+        <span class="v131_542">Đã bán 123</span>
+        <span class="v131_528">Hình thức bìa: Bìa Mềm</span>
+        <div class="v131_534"></div><div class="v131_538"></div>
+        <div class="v131_536"></div><div class="v131_539"></div>
+        <div class="v131_537"></div><div class="name"></div>
+        <span class="v131_543" style="color: red;font-size: large;">39.000 đ</span>
+    </div>
+
+    <div class="v131_544">
+        <span class="v131_545">Thông tin vận chuyển</span>
+        <span id="current-address" class="v131_546">Giao hàng đến 10/9 Thoại Ngọc Hầu, Quận Tân Phú, Hồ Chí Minh</span>
+        <input type="text" id="new-address-input" class="v131_546" placeholder="Nhập địa chỉ mới" style="display: none;">
+        <button id="save-address-btn" style="display: none;">Lưu</button>
+        <span id="change-address-btn" class="v131_547">Thay đổi</span>
+        <span class="v131_576">Xem thêm</span>
+        <span class="v131_548">Dự kiến giao Thứ sáu - 11/10</span>
+        <span class="v131_566">Giao hàng tiêu chuẩn</span>
+    </div>
+
+    <div class="product-description-container">
+        <h2 class="product-title">Chân Trời Sáng Tạo - Toán 7 tập 1</h2>
+        <p class="description">Thuộc bộ sách “Chân Trời Sáng Tạo” được biên soạn nhằm giúp học sinh lớp 1 phát triển kỹ năng ngôn ngữ một cách toàn diện. Dưới đây là một số thông tin chi tiết về sản phẩm này:</p>
+        <ul class="details-list">
+            <li><strong>Tác giả:</strong> Trịnh Cam Ly, Lê Thị Mỹ Hạnh</li>
+            <li><strong>Nhà xuất bản:</strong> Giáo dục Việt Nam</li>
+            <li><strong>Định dạng:</strong> Bìa mềm</li>
+            <li><strong>Giá bìa:</strong> 39.000 VNĐ</li>
+            <li><strong>Xuất bản:</strong> 2023</li>
+        </ul>
+        <p class="signed">Lưu ý: Giá có thể thay đổi theo từng thời điểm.</p>
+    </div>
+
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closePaymentModal()">&times;</span>
+            <h3>Chức năng đang bảo trì, hãy thêm vào giỏ hàng.</h3>
+        </div>
+    </div>
+
+    <script src="mainpg.js"></script>
+    <script>
+        function openPaymentModal() {
+            document.getElementById('paymentModal').style.display = 'block'; // Hiển thị modal
+        }
+
+        function closePaymentModal() {
+            document.getElementById('paymentModal').style.display = 'none'; // Ẩn modal
+        }
+        function confirmPurchase() {
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const address = document.getElementById('address').value;
+    const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+
+    // Kiểm tra xem các ô nhập có trống hay không
+    if (!name || !phone || !address) {
+        alert("Vui lòng điền đầy đủ thông tin!");
+        return;
+    }
+
+    // Xử lý xác nhận mua hàng ở đây
+    alert(`Cảm ơn ${name} đã mua hàng!\nSố điện thoại: ${phone}\nĐịa chỉ: ${address}\nHình thức thanh toán: ${paymentMethod}`);
+    closePaymentModal(); // Đóng modal sau khi xác nhận
+}
+        function confirmPurchase() {
+            // Xử lý xác nhận mua hàng ở đây
+            alert("Cảm ơn bạn đã mua hàng!");
+            closePaymentModal(); // Đóng modal sau khi xác nhận
+        }
+
+        // Đóng modal khi nhấp ra ngoài vùng modal
+        window.onclick = function(event) {
+            const paymentModal = document.getElementById('paymentModal');
+            if (event.target === paymentModal) {
+                closePaymentModal();
+            }
+        }
+
+        function confirmPurchase() {
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const address = document.getElementById('address').value;
+    const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+    
+    // Kiểm tra xem các ô nhập có trống hay không
+    if (!name || !phone || !address) {
+        alert("Vui lòng điền đầy đủ thông tin!");
+        return;
+    }
+
+    // Lưu thông tin vào localStorage
+    localStorage.setItem('name', name);
+    localStorage.setItem('phone', phone);
+    localStorage.setItem('address', address);
+    
+    // Nếu bạn có thông tin đơn hàng, hãy lưu vào localStorage (ví dụ, từ data-book)
+    const orderDetails = `Sản phẩm: Chân Trời Sáng Tạo - Tiếng Việt tập 1; Giá: 40.000 VNĐ`; // Thay đổi tùy thuộc vào sản phẩm
+    localStorage.setItem('order', orderDetails);
+    
+    // Chuyển hướng đến trang success.html
+    window.location.href = '../success.html';
+}
+// Hàm mở modal cho danh sách sách
+function openBookListModal() {
+    document.getElementById("menuModal").style.display = "block";
+}
+
+// Hàm đóng modal cho danh sách sách
+function closeMenuModal() {
+    document.getElementById("menuModal").style.display = "none";
+}
+
+// Hàm mở modal cho hình ảnh lớn
+function openModal() {
+    var modal = document.getElementById("imageModal");
+    var img = document.getElementById("productImage");
+    var modalImg = document.getElementById("modalImage");
+    modal.style.display = "block";
+    modalImg.src = img.src;
+}
+
+// Hàm đóng modal cho hình ảnh lớn
+function closeModal() {
+    document.getElementById("imageModal").style.display = "none";
+}
+    </script>
+</body>
+</html>

@@ -24,6 +24,14 @@
             color: #333;
         }
 
+        .v02 {
+            height: 8vw;
+        }
+
+        .hya-books {
+            top: 2.5vw;
+        }
+
         .container {
             max-width: 800px;
             margin: 30px auto;
@@ -73,13 +81,13 @@
         }
 
         .product-actions-container {
-            background-color: white; /* Màu nền trắng cho khối */
-            padding: 20px;           /* Khoảng đệm xung quanh các nút */
-            border-radius: 10px;      /* Bo tròn các góc của khối */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
-            display: inline-block;    /* Chỉ bao bọc kích thước nội dung */
-            text-align: center;       /* Căn giữa các phần tử bên trong */
-            margin-left: 8vw;        /* Di chuyển khối sang phải bằng cách thêm khoảng cách bên trái */
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            text-align: center;
+            margin-left: 8vw;
             width: 30vw;
         }
 
@@ -99,23 +107,92 @@
         }
 
         .add-to-cart {
-            background-color: #688345; /* Màu xanh lá */
+            background-color: #688345;
             color: white;
         }
 
         .add-to-cart:hover {
-            background-color: #175bbb; /* Màu khi hover */
+            background-color: #175bbb;
         }
 
         .buy-now {
-            background-color: #688345; /* Màu đỏ */
+            background-color: #688345;
             color: white;
         }
 
         .buy-now:hover {
-            background-color: #175bbb; /* Màu khi hover */
+            background-color: #175bbb;
         }
 
+        /* Modal Styles */
+        .modal {
+            display: none; /* Ẩn modal */
+            position: fixed; 
+            z-index: 1; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgb(0,0,0); 
+            background-color: rgba(0,0,0,0.4); 
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; 
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; 
+            max-width: 80vw; /* Chiều rộng tối đa cho modal */
+            max-height: 120vh; /* Chiều cao tối đa cho modal */
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .more1 {
+            top: 3.5vw;
+        }
+        /* Modal Styles */
+
+
+.menu-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu-list li {
+    padding: 15px;
+    border-bottom: 1px solid #ddd; /* Đường viền dưới cho mỗi mục */
+    color: #2980b9; /* Màu chữ */
+    cursor: pointer;
+    text-align: center; /* Căn giữa chữ */
+}
+
+.menu-list li:hover {
+    background-color: #688345; /* Màu nền khi hover */
+    color: white; /* Màu chữ khi hover */
+}
+a {
+    text-decoration: none; /* Bỏ dấu gạch chân */
+    color: inherit; /* Giữ nguyên màu của phần tử chứa */
+}
+
+a:hover {
+    text-decoration: none; /* Không thêm gạch chân khi di chuột */
+    color: inherit; /* Giữ nguyên màu khi hover */
+}
     </style>
     <script src="mainpg.js"></script>
 </head>
@@ -123,33 +200,61 @@
     <div class="v01"></div>
     <div class="v02">
         <div class="logohya">
-            <a href="index.html">
+            <a href="../index.html">
                 <img src="../assets/css/image/logohya.png" alt="Logo">
             </a>
         </div>
         <div class="hya-books">
-            <a href="index.html">HYA<br>BOOKS</a>
+            <a href="../index.html">HYA<br>BOOKS</a>
         </div>
-        <div class="menu">
+        <div class="menu" onclick="openBookListModal()">
             <img src="../assets/css/image/menu.png" alt="Menu" />
         </div>
-        <div class="more1">
+        <div class="more1" onclick="openBookListModal()">
             <img src="../assets/css/image/more1.png" alt="More" />
         </div>
+
+        <!-- Modal for book list -->
+<div id="menuModal" class="modal" onclick="closeMenuModal()">
+    <div class="modal-content" onclick="event.stopPropagation();"> <!-- Ngăn chặn sự kiện click từ việc đóng modal -->
+        <ul class="menu-list" style="font-size: medium;">
+            <a href="../class-lop/lop1.html"><li>Sách Giáo Khoa Lớp 1</li></a>
+            <a href="../class-lop/lop2.html"><li>Sách Giáo Khoa Lớp 2</li></a>
+            <a href="../class-lop/lop3.html"><li>Sách Giáo Khoa Lớp 3</li></a>
+            <a href="../class-lop/lop4.html"><li>Sách Giáo Khoa Lớp 4</li></a>
+            <a href="../class-lop/lop5.html"><li>Sách Giáo Khoa Lớp 5</li></a>
+            <a href="../class-lop/lop6.html"><li>Sách Giáo Khoa Lớp 6</li></a>
+            <a href="../class-lop/lop7.html"><li>Sách Giáo Khoa Lớp 7</li></a>
+            <a href="../class-lop/lop8.html"><li>Sách Giáo Khoa Lớp 8</li></a>
+            <a href="../class-lop/lop9.html"><li>Sách Giáo Khoa Lớp 9</li></a>
+            <a href="../class-lop/lop10.html"><li>Sách Giáo Khoa Lớp 10</li></a>
+            <a href="../class-lop/lop11.html"><li>Sách Giáo Khoa Lớp 11</li></a>
+            <a href="../class-lop/lop12.html"><li>Sách Giáo Khoa Lớp 12</li></a>
+        </ul>
+    </div>
+</div>
+
+<!-- Modal for enlarged image -->
+<div id="imageModal" class="modal" onclick="closeModal()">
+    <img class="modal-content" id="modalImage">
+</div>
+
+
         <div class="search">
-            <img src="../assets/css/image/search.png" alt="Search" />
-            <input type="text" class="search-input" placeholder="Tìm kiếm...">
+            <a href="../tatcasanpham.html"><img src="../assets/css/image/search.png" alt="Search" />
+                <input type="text" class="search-input" placeholder="Tìm kiếm..."></a>
         </div>
         <div class="notif">
-            <a href="notif.html"><img src="../assets/css/image/notif.png" alt="Notification" /></a>
+            <a href="../notif.html"><img src="../assets/css/image/notif.png" alt="Notification" /></a>
         </div>
         <div class="giohang">
             <a href="../cart.html"><img src="../assets/css/image/giohang.png" alt="Cart"></a>
         </div>
         <div class="acc">
-            <a href="account.html"><img src="../assets/css/image/acc.png" alt="Account" /></a>
+            <a href="../account.html"><img src="../assets/css/image/acc.png" alt="Account" /></a>
         </div>
     </div>
+
 
     <!-- SanPham -->
     <div class="product-image-container">
@@ -213,5 +318,91 @@
     </div>
 
     <script src="mainpg.js"></script>
+    <script>
+        function openPaymentModal() {
+            document.getElementById('paymentModal').style.display = 'block'; // Hiển thị modal
+        }
+
+        function closePaymentModal() {
+            document.getElementById('paymentModal').style.display = 'none'; // Ẩn modal
+        }
+        function confirmPurchase() {
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const address = document.getElementById('address').value;
+    const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+
+    // Kiểm tra xem các ô nhập có trống hay không
+    if (!name || !phone || !address) {
+        alert("Vui lòng điền đầy đủ thông tin!");
+        return;
+    }
+
+    // Xử lý xác nhận mua hàng ở đây
+    alert(`Cảm ơn ${name} đã mua hàng!\nSố điện thoại: ${phone}\nĐịa chỉ: ${address}\nHình thức thanh toán: ${paymentMethod}`);
+    closePaymentModal(); // Đóng modal sau khi xác nhận
+}
+        function confirmPurchase() {
+            // Xử lý xác nhận mua hàng ở đây
+            alert("Cảm ơn bạn đã mua hàng!");
+            closePaymentModal(); // Đóng modal sau khi xác nhận
+        }
+
+        // Đóng modal khi nhấp ra ngoài vùng modal
+        window.onclick = function(event) {
+            const paymentModal = document.getElementById('paymentModal');
+            if (event.target === paymentModal) {
+                closePaymentModal();
+            }
+        }
+
+        function confirmPurchase() {
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const address = document.getElementById('address').value;
+    const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+    
+    // Kiểm tra xem các ô nhập có trống hay không
+    if (!name || !phone || !address) {
+        alert("Vui lòng điền đầy đủ thông tin!");
+        return;
+    }
+
+    // Lưu thông tin vào localStorage
+    localStorage.setItem('name', name);
+    localStorage.setItem('phone', phone);
+    localStorage.setItem('address', address);
+    
+    // Nếu bạn có thông tin đơn hàng, hãy lưu vào localStorage (ví dụ, từ data-book)
+    const orderDetails = `Sản phẩm: Chân Trời Sáng Tạo - Tiếng Việt tập 1; Giá: 40.000 VNĐ`; // Thay đổi tùy thuộc vào sản phẩm
+    localStorage.setItem('order', orderDetails);
+    
+    // Chuyển hướng đến trang success.html
+    window.location.href = '../success.html';
+}
+// Hàm mở modal cho danh sách sách
+function openBookListModal() {
+    document.getElementById("menuModal").style.display = "block";
+}
+
+// Hàm đóng modal cho danh sách sách
+function closeMenuModal() {
+    document.getElementById("menuModal").style.display = "none";
+}
+
+// Hàm mở modal cho hình ảnh lớn
+function openModal() {
+    var modal = document.getElementById("imageModal");
+    var img = document.getElementById("productImage");
+    var modalImg = document.getElementById("modalImage");
+    modal.style.display = "block";
+    modalImg.src = img.src;
+}
+
+// Hàm đóng modal cho hình ảnh lớn
+function closeModal() {
+    document.getElementById("imageModal").style.display = "none";
+}
+    </script>
 </body>
 </html>

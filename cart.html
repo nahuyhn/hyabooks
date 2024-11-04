@@ -120,7 +120,7 @@
             let cart = JSON.parse(localStorage.getItem("cart")) || [];
             const cartItemsContainer = document.getElementById("cart-items");
             const totalPriceContainer = document.getElementById("total-price");
-
+    
             // Cập nhật giỏ hàng
             function updateCart() {
                 cartItemsContainer.innerHTML = "";
@@ -144,9 +144,9 @@
                         // Tính tổng tiền
                         totalPrice += item.price * item.quantity;
                     });
-
+    
                     totalPriceContainer.innerHTML = `Tổng tiền: ${totalPrice.toLocaleString()} đ`; // Hiển thị tổng tiền
-
+    
                     document.querySelectorAll('.remove-item').forEach(button => {
                         button.addEventListener('click', function() {
                             const index = this.getAttribute('data-index');
@@ -157,9 +157,9 @@
                     });
                 }
             }
-
+    
             updateCart();
-
+    
             // Thêm sản phẩm vào giỏ hàng
             function addToCart(product) {
                 const existingItem = cart.find(item => item.title === product.title);
@@ -172,7 +172,7 @@
                 localStorage.setItem("cart", JSON.stringify(cart));
                 updateCart();
             }
-
+    
             // Xử lý thanh toán
             document.getElementById("checkout-button").addEventListener("click", function() {
                 if (cart.length > 0) {
@@ -189,37 +189,53 @@
                     alert("Giỏ hàng của bạn hiện đang trống!");
                 }
             });
-
+    
             // Đóng modal
             document.querySelector(".close").addEventListener("click", function() {
                 document.getElementById("payment-modal").style.display = "none";
             });
-
+    
             window.onclick = function(event) {
                 const modal = document.getElementById("payment-modal");
                 if (event.target === modal) {
                     modal.style.display = "none";
                 }
             };
-
+    
             // Xác nhận thanh toán
-            document.getElementById("payment-form").addEventListener("submit", function(event) {
-                event.preventDefault();
-                const name = document.getElementById("name").value;
-                const address = document.getElementById("address").value;
-                const phone = document.getElementById("phone").value;
-                const paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+document.getElementById("payment-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const name = document.getElementById("name").value;
+    const address = document.getElementById("address").value;
+    const phone = document.getElementById("phone").value;
+    const paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
 
-                const orderDetails = cart.map(item => `${item.title} - Giá: ${item.price} đ - Số lượng: ${item.quantity}`).join('; ');
-                localStorage.setItem('name', name);
-                localStorage.setItem('address', address);
-                localStorage.setItem('phone', phone);
-                localStorage.setItem('order', orderDetails);
+    // Tạo chi tiết đơn hàng
+    const orderDetails = cart.map(item => ({
+        title: item.title,
+        price: item.price,
+        quantity: item.quantity
+    }));
 
-                window.location.href = "success.html";
-                localStorage.removeItem("cart");
-            });
+    // Lưu thông tin đơn hàng
+    const orderSummary = {
+        name: name,
+        address: address,
+        phone: phone,
+        paymentMethod: paymentMethod,
+        items: orderDetails
+    };
+
+    // Lưu thông báo
+    localStorage.setItem('notification', `Đơn hàng của bạn đang được xử lý.`);
+    localStorage.setItem('orders', JSON.stringify([...JSON.parse(localStorage.getItem('orders') || '[]'), orderSummary]));
+
+    window.location.href = "success.html"; // Chuyển đến trang thông báo
+    localStorage.removeItem("cart");
+});
+
         });
     </script>
+    
 </body>
 </html>

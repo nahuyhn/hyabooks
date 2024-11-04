@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <script src="./assets/script.js" defer></script>
     <title>Account - Đăng nhập hoặc Tạo tài khoản</title>
-
     <style>
         /* Căn chỉnh phần chính */
         .account-container {
@@ -42,7 +41,7 @@
             font-weight: bold;
         }
 
-        input[type="text"], input[type="password"], input[type="email"] {
+        input[type="text"], input[type="password"], input[type="email"], input[type="tel"] {
             width: 100%;
             padding: 10px;
             margin-bottom: 20px;
@@ -51,30 +50,117 @@
         }
 
         button {
-            padding: 10px;
-            background-color: #4caf50;
-            color: white;
+            padding: 12px 20px; /* Tăng kích thước nút */
+            border-radius: 5px;
             border: none;
-            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .register-btn {
+            margin-top: 1vw;
+            background-color: #688345; /* Màu xanh lá cây */
+            color: white;
+            margin-bottom: 0.5vw;
+        }
+        .register-btn:hover {
+            background-color: #455b28; /* Màu xanh lá cây đậm */
+            transform: scale(1.05); /* Tăng kích thước một chút */
+        }
+        /* Nút Đăng nhập */
+        #login-btn {
+            margin-top: 1vw;
+            background-color: #688345; /* Màu xanh lá cây */
+            color: white;
+            margin-bottom: 0.5vw;
+        }
+
+        /* Nút Bỏ qua */
+        .cancel-btn {
+            background-color: #688345; /* Màu đỏ */
+            color: white;
+            margin-left: 0.2px; /* Khoảng cách giữa 2 nút */
+        }
+
+        /* Hiệu ứng hover cho nút Đăng nhập */
+        #login-btn:hover {
+            background-color: #455b28; /* Màu xanh lá cây đậm */
+            transform: scale(1.05); /* Tăng kích thước một chút */
+        }
+
+        /* Hiệu ứng hover cho nút Bỏ qua */
+        .cancel-btn:hover {
+            background-color: #455b28; /* Màu đỏ đậm */
+            transform: scale(1.05); /* Tăng kích thước một chút */
+        }
+
+        /* Hiệu ứng khi nút bị nhấn */
+        button:active {
+            transform: scale(0.95); /* Giảm kích thước một chút khi nhấn */
+        }
+
+        /* Tab chuyển đổi giữa Đăng nhập và Đăng ký */
+        .account-tabs {
+            display: flex;
+            justify-content: space-around;
+            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 20px;
+        }
+
+        .account-tabs div {
+            padding: 10px;
             cursor: pointer;
+            font-weight: bold;
         }
 
-        button:hover {
-            background-color: #45a049;
+        .account-tabs div.active {
+            border-bottom: 2px solid #688345;
+            color: #688345;
         }
 
-        /* Chuyển đổi giữa form đăng nhập và đăng ký */
+        /* Các liên kết chuyển đổi giữa Đăng nhập và Đăng ký */
         .toggle-link {
             text-align: center;
-            margin-top: 10px;
+            font-size: 14px;
+            color: #688345;
             cursor: pointer;
-            color: #4caf50;
+            margin-top: 15px;
         }
 
         .toggle-link:hover {
             text-decoration: underline;
         }
 
+        /* Căn dưới cùng */
+        .terms {
+            text-align: center;
+            font-size: 12px;
+            color: #999;
+            margin-top: 15px;
+        }
+
+        .terms a {
+            color: #688345;
+            text-decoration: none;
+        }
+
+        .terms a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hiện/Ẩn mật khẩu */
+        .show-password {
+            position: absolute;
+            right: 15px;
+            top: 40px;
+            cursor: pointer;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .v02 {
+            height: 7.5vw;
+        }
     </style>
 </head>
 <body>
@@ -99,7 +185,7 @@
             <input type="text" class="search-input" placeholder="Tìm kiếm...">
         </div>
         <div class="notif">
-<a href="notif.html"><img src="./assets/css/image/notif.png" alt="Notification" /></a>
+            <a href="notif.html"><img src="./assets/css/image/notif.png" alt="Notification" /></a>
         </div>
         <div class="giohang">
             <a href="cart.html"><img src="./assets/css/image/giohang.png" alt="Cart"></a>
@@ -108,150 +194,10 @@
             <a href="account.html"><img src="./assets/css/image/acc.png" alt="Account" /></a>
         </div>
     </div>
-
-    <style>
-        /* Container chính cho đăng nhập và tạo tài khoản */
-        .account-container {
-            width: 400px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            font-family: 'Inter', sans-serif;
-            border: 1px solid #e0e0e0;
-        }
-
-        /* Tab chuyển đổi giữa Đăng nhập và Đăng ký */
-        .account-tabs {
-            display: flex;
-            justify-content: space-around;
-            border-bottom: 1px solid #e0e0e0;
-            margin-bottom: 20px;
-        }
-
-        .account-tabs div {
-            padding: 10px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .account-tabs div.active {
-            border-bottom: 2px solid #c32126;
-            color: #c32126;
-        }
-
-        /* Form chung */
-        form {
-            display: none; /* Ẩn form đăng ký hoặc đăng nhập ban đầu */
-            flex-direction: column;
-        }
-
-        form.active {
-            display: flex; /* Hiển thị form hiện tại */
-        }
-
-        /* Các input */
-        input[type="text"], input[type="password"], input[type="email"], input[type="tel"] {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            font-size: 14px;
-        }
-
-        /* Nút Đăng nhập và Đăng ký */
-        button {
-            padding: 12px;
-            background-color: #c32126;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-
-        button:hover {
-            background-color: #a8191f;
-        }
-
-        /* Nút Bỏ qua */
-        .cancel-btn {
-            padding: 12px;
-            border: 2px solid #c32126;
-            color: #c32126;
-            background-color: white;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .cancel-btn:hover {
-            background-color: #f9f9f9;
-        }
-
-        /* Liên kết Quên mật khẩu */
-        .forgot-password {
-            text-align: right;
-            font-size: 14px;
-            color: #c32126;
-            margin-bottom: 10px;
-            cursor: pointer;
-        }
-
-        .forgot-password:hover {
-            text-decoration: underline;
-        }
-/* Các liên kết chuyển đổi giữa Đăng nhập và Đăng ký */
-        .toggle-link {
-            text-align: center;
-            font-size: 14px;
-            color: #c32126;
-            cursor: pointer;
-            margin-top: 15px;
-        }
-
-        .toggle-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Căn dưới cùng */
-        .terms {
-            text-align: center;
-            font-size: 12px;
-            color: #999;
-            margin-top: 15px;
-        }
-
-        .terms a {
-            color: #c32126;
-            text-decoration: none;
-        }
-
-        .terms a:hover {
-            text-decoration: underline;
-        }
-
-        /* Hiện/Ẩn mật khẩu */
-        .show-password {
-            position: absolute;
-            right: 15px;
-            top: 40px;
-            cursor: pointer;
-            color: #999;
-            font-size: 14px;
-        }
-
-    </style>
-</head>
-<body>
-
     <div class="account-container">
-        <!-- Tab Đăng nhập và Đăng ký -->
         <div class="account-tabs">
-            <div id="tab-login" class="active">Đăng nhập</div>
-            <div id="tab-register">Đăng ký</div>
+            <div id="tab-login" class="active" onclick="toggleTab('login')">Đăng nhập</div>
+            <div id="tab-register" onclick="toggleTab('register')">Đăng ký</div>
         </div>
 
         <!-- Form Đăng nhập -->
@@ -285,71 +231,44 @@
                 <span class="show-password" onclick="togglePassword('register-password')">Hiện</span>
             </div>
 
-            <button type="button" id="register-btn">Đăng ký</button>
+            <button type="button" class="register-btn">Đăng ký</button>
             <button type="button" class="cancel-btn">Bỏ qua</button>
         </form>
 
-        <div class="terms">Bằng việc đăng ký, bạn đã đồng ý với <a href="#">Điều khoản dịch vụ</a> và <a href="#">Chính sách bảo mật</a>
-        </div>
+        <div class="terms">Bằng việc đăng ký, bạn đã đồng ý với <a href="#">Điều khoản dịch vụ</a> và <a href="#">Chính sách bảo mật</a></div>
     </div>
+    <script>
+        function toggleTab(tab) {
+            const loginForm = document.getElementById('login-form');
+            const registerForm = document.getElementById('register-form');
+            const tabLogin = document.getElementById('tab-login');
+            const tabRegister = document.getElementById('tab-register');
 
-    <footer>
-        <div class="kedoc"></div>
-        <div class="logohya1">
-            <img src="./assets/css/image/logohya.png" alt="Logo">
-        </div>
-        <div class="hya-books1">
-            <a href="index.html">HYA<br>BOOKS</a>
-        </div>
-        <div class="gioithieu1">
-            613 Âu Cơ, Phường Phú Trung, Quận Tân Phú, TP.HCM.<br>
-            HYABooks.com nhận đặt hàng trực tuyến và giao hàng tận nơi.<br>
-            KHÔNG hỗ trợ đặt mua và nhận hàng trực tiếp tại văn phòng<br>
-            cũng như tất cả Hệ Thống HYABooks trên toàn quốc.
-        </div>
-        <div class="fblink">
-            <a href="https://www.facebook.com/profile.php?id=61566572446709">
-                <img src="./assets/css/image/image 108.png" alt="Facebook">
-            </a>
-        </div>
-        <div class="xlink">
-            <a href="https://www.facebook.com/profile.php?id=61566572446709">
-                <img src="./assets/css/image/image 109.png" alt="Twitter">
-            </a>
-        </div>
-        <div class="inslink">
-            <a href="https://www.instagram.com/hya.books/">
-                <img src="./assets/css/image/Group 43.png" alt="Instagram">
-            </a>
-        </div>
-        <div class="dichvu">
-            <span class="bold">DỊCH VỤ</span><br>
-            <a href="dichvu.html">
-            Điều khoản sử dụng<br>
-            Chính sách bảo mật thông tin cá nhân<br>
-            Chính sách bảo mật thanh toán<br>
-            Giới thiệu Fahasa</a>
-        </div>
-        <div class="hotro">
-            <span class="bold">HỖ TRỢ</span><br>
-            Chính sách đổi - trả - hoàn tiền<br>
-            Chính sách bảo hành - bồi hoàn<br>
-            Chính sách vận chuyển<br>
-            Chính sách khách sỉ
-        </div>
-        <div class="taikhoancuatoi">
-            <span class="bold">TÀI KHOẢN CỦA TÔI</span><br>
-            Đăng nhập/Tạo mới tài khoản<br>
-            Thay đổi địa chỉ khách hàng<br>
-            Chi tiết tài khoản<br>
-            Lịch sử mua hàng
-        </div>
-        <div class="lienhe">
-            <span class="bold">LIÊN HỆ</span><br>
-            613 Âu Cơ, Tân Phú, TP. HCM<br>
-            cskh@hyabooks.com<br> 
-            0797 909 109<br>
-        </div>
-    </footer>
+            if (tab === 'login') {
+                loginForm.classList.add('active');
+                registerForm.classList.remove('active');
+                tabLogin.classList.add('active');
+                tabRegister.classList.remove('active');
+            } else {
+                loginForm.classList.remove('active');
+                registerForm.classList.add('active');
+                tabLogin.classList.remove('active');
+                tabRegister.classList.add('active');
+            }
+        }
+
+        function togglePassword(id) {
+            const passwordField = document.getElementById(id);
+            const passwordToggle = passwordField.nextElementSibling;
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                passwordToggle.textContent = "Ẩn";
+            } else {
+                passwordField.type = "password";
+                passwordToggle.textContent = "Hiện";
+            }
+        }
+    </script>
 </body>
 </html>

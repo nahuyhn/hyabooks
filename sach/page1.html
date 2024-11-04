@@ -241,8 +241,8 @@ a:hover {
 
 
         <div class="search">
-            <img src="../assets/css/image/search.png" alt="Search" />
-            <input type="text" class="search-input" placeholder="Tìm kiếm...">
+            <a href="../tatcasanpham.html"><img src="../assets/css/image/search.png" alt="Search" />
+                <input type="text" class="search-input" placeholder="Tìm kiếm..."></a>
         </div>
         <div class="notif">
             <a href="../notif.html"><img src="../assets/css/image/notif.png" alt="Notification" /></a>
@@ -318,29 +318,7 @@ a:hover {
     <div id="paymentModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closePaymentModal()">&times;</span>
-            <h2>Xác nhận mua hàng</h2>
-            <label for="name">Tên:</label>
-            <input type="text" id="name" required placeholder="Nhập tên của bạn">
-            <br>
-            <label for="phone">Số điện thoại:</label>
-            <input type="tel" id="phone" required placeholder="Nhập số điện thoại của bạn">
-            <br>
-            <label for="address">Địa chỉ:</label>
-            <input type="text" id="address" required placeholder="Nhập địa chỉ của bạn">
-            <h3>Hình thức thanh toán:</h3>
-            <label>
-                <input type="radio" name="paymentMethod" value="cash" checked>
-                Thanh toán khi nhận hàng
-            </label>
-            <br>
-            <label>
-                <input type="radio" name="paymentMethod" value="bank">
-                Thanh toán chuyển khoản
-            </label>
-            
-            <button id="confirm-buy" onclick="confirmPurchase()">Xác nhận</button>
-            <button onclick="closePaymentModal()">Hủy</button>
-            <br>
+            <h3>Chức năng đang bảo trì, hãy thêm vào giỏ hàng.</h3>
         </div>
     </div>
 
@@ -430,9 +408,6 @@ function openModal() {
 function closeModal() {
     document.getElementById("imageModal").style.display = "none";
 }
-
-
-
     </script>
 </body>
 </html>

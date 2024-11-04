@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết đơn hàng</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <h1>Chi tiết đơn hàng</h1>
+    <div id="order-details"></div>
+    <button id="download-pdf" style="margin-top: 20px;">Tải PDF</button>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const orderDetailsContainer = document.getElementById("order-details");
+            const currentOrder = JSON.parse(localStorage.getItem('currentOrder'));
+
+            if (!currentOrder) {
+                orderDetailsContainer.innerHTML = "<p>Không có thông tin đơn hàng.</p>";
+                return;
+            }
+
+            orderDetailsContainer.innerHTML = `
+                <h2>Thông tin người nhận:</h2>
+                <p>Tên: ${currentOrder.name}</p>
+                <p>Địa chỉ: ${currentOrder.address}</p>
+                <p>Điện thoại: ${currentOrder.phone}</p>
+                <p>Phương thức thanh toán: ${currentOrder.paymentMethod}</p>
+                <h2>Sản phẩm đã đặt:</h2>
+            `;
+
+            currentOrder.items.forEach(item => {
+                orderDetailsContainer.innerHTML += `
+                    <p>${item.title} - Giá: ${item.price} đ - Số lượng: ${item.quantity}</p>
+                `;
+            });
+
+            // Hàm tải PDF
+            document.getElementById("download-pdf").addEventListener("click", function() {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+
+                doc.text(`Công Ty Trách Nhiệm Hữu Hạn HYA-BOOK`, 20, 30);
+                doc.setFontSize(16);
+                doc.text("Chi tiết đơn hàng", 20, 20);
+                doc.setFontSize(12);
+                doc.text(`Tên: ${currentOrder.name}`, 20, 30);
+                doc.text(`Địa chỉ: ${currentOrder.address}`, 20, 40);
+                doc.text(`Điện thoại: ${currentOrder.phone}`, 20, 50);
+                doc.text(`Phương thức thanh toán: ${currentOrder.paymentMethod}`, 20, 60);
+                doc.text("Sản phẩm đã đặt:", 20, 70);
+                
+                let verticalOffset = 80;
+                currentOrder.items.forEach(item => {
+                    doc.text(`${item.title} - Giá: ${item.price} đ - Số lượng: ${item.quantity}`, 20, verticalOffset);
+                    verticalOffset += 10; // Tăng khoảng cách giữa các dòng
+                });
+                doc.save("order-details.pdf"); // Tải xuống PDF
+            });
+        });
+    </script>
+</body>
+</html>
